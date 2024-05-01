@@ -213,6 +213,8 @@ class Param(FieldInfo):
         # self.param_type: Any = None
         self.model_field: Optional[FieldInfo] = None
         json_schema_extra = {}
+        if extra.get("format", None):
+            json_schema_extra["format"] = extra["format"]
         if example:
             json_schema_extra["example"] = example
         if examples:
